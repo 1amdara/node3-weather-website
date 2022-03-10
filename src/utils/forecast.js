@@ -13,9 +13,8 @@ const forecast = (latitude, longitude, callback) => {
               callback('Unable to connect to weather services!', undefined)
          } else if (body.error) {
                callback('Unable to find location', undefined)
-         } else {
-               console.log( body.current.weather_descriptions[0])
-               callback(undefined,body.current.weather_descriptions.summary + '. It is currently ' + body.current.temperature + ' degrees out. It feels like ' + body.current.feelslike + ' degrees out. ')
+         } else {   
+            callback(undefined, body.current.weather_descriptions.summary + ' It is currently ' + body.current.temperature + ' degrees out. The windspeed today is ' + body.current.wind_speed + ' with a wind degree of ' + body.current.wind_degree + '. It is ' + body.current.feelslike + ' degrees out. ')
          }
     })
     }
